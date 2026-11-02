@@ -1,0 +1,15 @@
+{
+  "id": "tavaan.engine.test",
+  "type": "engine",
+  "name": "Test",
+  "title_fa": "چارچوب تست خودنوشته",
+  "version": "0.2.0",
+  "namespace": "Tavaan\\Testing\\",
+  "autoload": {"psr-4": {"Tavaan\\Testing\\": "src/"}},
+  "providers": [],
+  "requires": {"php": ">=8.2", "engines": []},
+  "tables": [],
+  "commands": ["test"],
+  "docs": "docs/03-engines/test.md",
+  "notes": "M8 کامل (TVN-0084): Mock بدون eval + HttpTest درون‌فرایندی + DatabaseTest (SQLite in-memory + migrate) + Factory/Faker deterministic + Runner با group/filter/parallel/coverage. وابستگی نرم به http/database/auth/i18n (با گارد class_exists)."
+}
