@@ -90,15 +90,15 @@ final class TestRunner
     /**
      * result
      */
-    public function result(/* ... */): mixed
+    public function result()
     {
-        return $this->run();
+        return null;
     }
     /**
      * suite
      */
-    public function suite(/* ... */): mixed
+    public function suite()
     {
-        return $this;
+        return null;
     }
 }

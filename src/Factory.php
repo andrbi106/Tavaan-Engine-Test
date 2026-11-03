@@ -14,35 +14,35 @@ final class Factory
     /**
      * definition
      */
-    public function definition(/* ... */): mixed
+    public function definition()
     {
         return null;
     }
     /**
      * create
      */
-    public function create(/* ... */): mixed
+    public function create(array $data): self
     {
-        return $this;
+        return null;
     }
     /**
      * make
      */
-    public function make(/* ... */): mixed
+    public function make()
     {
         return null;
     }
     /**
      * count
      */
-    public function count(/* ... */): mixed
+    public function count(): int
     {
         return 0;
     }
     /**
      * state
      */
-    public function state(/* ... */): mixed
+    public function state()
     {
         return null;
     }
