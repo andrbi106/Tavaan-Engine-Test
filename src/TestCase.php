@@ -277,11 +277,6 @@ abstract class TestCase
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
     /**
      * actingAs
      */
@@ -318,72 +313,32 @@ abstract class TestCase
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 
     /**
      * ...
      */
-    public function ...(/* ... */): mixed
-    {
-        // TODO: Implement per docs.
-        return null;
-    }
 }
