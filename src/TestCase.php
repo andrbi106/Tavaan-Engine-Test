@@ -569,19 +569,6 @@ abstract class TestCase
         }
     }
 
-    public static function assertGreaterThanOrEqual(mixed $expected, mixed $actual, string $message = ''): void
-    {
-        if (!($actual >= $expected)) {
-            throw AssertionFailedException::forAssertion('assertGreaterThanOrEqual', $message ?: "Expected >= {$expected}, got {$actual}.");
-        }
-    }
-
-    public static function assertNotNull(mixed $value, string $message = ''): void
-    {
-        if ($value === null) {
-            throw AssertionFailedException::forAssertion('assertNotNull', $message ?: 'Expected not null.');
-        }
-    }
 
     public function createMock(string $class): object
     {
