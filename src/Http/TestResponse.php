@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Testing\Http;
 
-use Tavaan\Core\Contracts\Http\ResponseInterface;
+use Tavaan\Engine\Http\Contracts\ResponseInterface;
 use Tavaan\Engine\Http\Response;
 use Tavaan\Testing\AssertionFailed;
 use Tavaan\Testing\TestCase;

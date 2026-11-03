@@ -6,9 +6,9 @@ namespace Tavaan\Testing\Http;
 
 use Tavaan\Core\Application\Application;
 use Tavaan\Core\Application\ApplicationBuilder;
-use Tavaan\Core\Contracts\Auth\Authenticatable;
-use Tavaan\Core\Contracts\Http\KernelInterface as HttpKernelInterface;
-use Tavaan\Core\Contracts\Http\RequestInterface;
+use Tavaan\Engine\Auth\Contracts\Authenticatable;
+use Tavaan\Engine\Http\Contracts\KernelInterface as HttpKernelInterface;
+use Tavaan\Engine\Http\Contracts\RequestInterface;
 use Tavaan\Engine\Auth\AuthManager;
 use Tavaan\Engine\Http\Request;
 use Tavaan\Testing\AssertionFailed;

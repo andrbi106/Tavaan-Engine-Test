@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Testing\Coverage;
 
-use Tavaan\Core\Contracts\Console\OutputInterface;
+use Tavaan\Engine\Console\Contracts\OutputInterface;
 
 /**
  * تَوان | Tavaan — Testing
