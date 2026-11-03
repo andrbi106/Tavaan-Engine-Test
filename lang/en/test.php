@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-/*| پیام‌های en برای موتور test */
-
 return [
-    'error_default' => 'Unknown error (test)',
-    'not_configured' => 'Engine not configured (test)',
+    'error_assertion_failed' => 'Assertion failed: {0}',
+    'error_no_expectation' => 'No expectation set for method "{0}".',
+    'error_test_incomplete' => 'Test incomplete: {0}',
+    'summary_pass' => 'Tests passed',
+    'summary_fail' => '{0} test(s) failed',
 ];

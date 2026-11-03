@@ -2,29 +2,32 @@
 
 declare(strict_types=1);
 
-/*|--------------------------------------------------------------------------
- | Test Engine Configuration
- |--------------------------------------------------------------------------
- |
- | پیکربندی موتور test — همهٔ کلیدهای مستندشده در `docs/03-engines/test.md` بخش «پیکربندی».
- |
- |@see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/test.md
- */
+/*|--------------------------------------------------------------------------*/
+/*| Test Engine Configuration                                                 */
+/*|--------------------------------------------------------------------------*/
+/*| پیکربندی موتور Test — چارچوب تست خودنوشته.                               */
+/*|                                                                         */
+/*| @see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/test.md
+/*|--------------------------------------------------------------------------*/
 
 return [
-    /*| پیش‌فرض موتور (driver/store یا حالت فعال) */
-    'default' => env('TEST_DEFAULT', 'default'),
+    /*| حالت اجرا: native | phpunit */
+    'mode' => \getenv('TVN_TEST_MODE') !== false ? \getenv('TVN_TEST_MODE') : 'native',
 
-    /*| کلید کش (در صورت استفاده) */
-    'prefix' => env('TEST_PREFIX', 'test:'),
+    /*| نمایش verbose (details) */
+    'verbose' => \getenv('TVN_TEST_VERBOSE') !== false
+        ? \filter_var(\getenv('TVN_TEST_VERBOSE'), \FILTER_VALIDATE_BOOL)
+        : false,
 
-    /*| تنظیمات لاگ */
-    'log' => [
-        'channel' => env('TEST_LOG_CHANNEL', 'test'),
-    ],
+    /*| stop on first failure */
+    'stop_on_failure' => \getenv('TVN_TEST_STOP') !== false
+        ? \filter_var(\getenv('TVN_TEST_STOP'), \FILTER_VALIDATE_BOOL)
+        : false,
 
-    /*| سایر کلیدها (طبق مستندات) */
-    'options' => [
-        // TODO: کلیدهای اضافی طبق سند §۶ (پیکربندی)
+    /*| مسیر پیش‌فرض tests */
+    'paths' => [
+        'unit' => 'tests/Unit',
+        'feature' => 'tests/Feature',
+        'integration' => 'tests/Integration',
     ],
 ];
