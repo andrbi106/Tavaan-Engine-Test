@@ -52,7 +52,8 @@ final class TestRunner
                     $failed++;
                 }
                 if ($this->verbose) {
-                    echo $result . "\n";
+                    echo $result . "
+";
                 }
             }
         }

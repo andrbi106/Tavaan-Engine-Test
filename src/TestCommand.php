@@ -23,12 +23,16 @@ final class TestCommand
     {
         $dir = $args[0] ?? 'tests';
         if (!\is_dir($dir)) {
-            echo "Test directory not found: {$dir}\n";
+            echo "Test directory not found: {$dir}
+";
             return 1;
         }
-        echo "Running tests in: {$dir}\n";
+        echo "Running tests in: {$dir}
+";
         $result = TestRunner::runDirectory($dir, verbose: true);
-        echo "\n" . $result->summary() . "\n";
+        echo "
+" . $result->summary() . "
+";
         return $result->isPassed() ? 0 : 1;
     }
 }
