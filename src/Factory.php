@@ -16,7 +16,6 @@ final class Factory
      */
     public function definition(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -24,15 +23,13 @@ final class Factory
      */
     public function create(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
-        return null;
+        return $this;
     }
     /**
      * make
      */
     public function make(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -40,15 +37,13 @@ final class Factory
      */
     public function count(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
-        return null;
+        return 0;
     }
     /**
      * state
      */
     public function state(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
 }
