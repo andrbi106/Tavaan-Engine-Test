@@ -341,4 +341,272 @@ abstract class TestCase
     /**
      * ...
      */
+
+    public static function assertFileExists(string $path, string $message = ''): void
+    {
+        if (!file_exists($path)) {
+            throw AssertionFailedException::forAssertion('assertFileExists', $message ?: "File '{$path}' does not exist.");
+        }
+    }
+
+    public static function assertFileNotExists(string $path, string $message = ''): void
+    {
+        if (file_exists($path)) {
+            throw AssertionFailedException::forAssertion('assertFileNotExists', $message ?: "File '{$path}' exists.");
+        }
+    }
+
+    public static function assertDirectoryExists(string $path, string $message = ''): void
+    {
+        if (!is_dir($path)) {
+            throw AssertionFailedException::forAssertion('assertDirectoryExists', $message ?: "Directory '{$path}' does not exist.");
+        }
+    }
+
+    public static function assertStringStartsWith(string $needle, string $haystack, string $message = ''): void
+    {
+        if (!str_starts_with($haystack, $needle)) {
+            throw AssertionFailedException::forAssertion('assertStringStartsWith', $message ?: "'{$haystack}' does not start with '{$needle}'.");
+        }
+    }
+
+    public static function assertStringEndsWith(string $needle, string $haystack, string $message = ''): void
+    {
+        if (!str_ends_with($haystack, $needle)) {
+            throw AssertionFailedException::forAssertion('assertStringEndsWith', $message ?: "'{$haystack}' does not end with '{$needle}'.");
+        }
+    }
+
+    public static function assertIsArray(mixed $value, string $message = ''): void
+    {
+        if (!is_array($value)) {
+            throw AssertionFailedException::forAssertion('assertIsArray', $message ?: 'Expected array.');
+        }
+    }
+
+    public static function assertIsNotArray(mixed $value, string $message = ''): void
+    {
+        if (is_array($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotArray', $message ?: 'Expected not array.');
+        }
+    }
+
+    public static function assertIsString(mixed $value, string $message = ''): void
+    {
+        if (!is_string($value)) {
+            throw AssertionFailedException::forAssertion('assertIsString', $message ?: 'Expected string.');
+        }
+    }
+
+    public static function assertIsNotString(mixed $value, string $message = ''): void
+    {
+        if (is_string($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotString', $message ?: 'Expected not string.');
+        }
+    }
+
+    public static function assertIsInt(mixed $value, string $message = ''): void
+    {
+        if (!is_int($value)) {
+            throw AssertionFailedException::forAssertion('assertIsInt', $message ?: 'Expected int.');
+        }
+    }
+
+    public static function assertIsNotInt(mixed $value, string $message = ''): void
+    {
+        if (is_int($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotInt', $message ?: 'Expected not int.');
+        }
+    }
+
+    public static function assertIsBool(mixed $value, string $message = ''): void
+    {
+        if (!is_bool($value)) {
+            throw AssertionFailedException::forAssertion('assertIsBool', $message ?: 'Expected bool.');
+        }
+    }
+
+    public static function assertIsNotBool(mixed $value, string $message = ''): void
+    {
+        if (is_bool($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotBool', $message ?: 'Expected not bool.');
+        }
+    }
+
+    public static function assertIsFloat(mixed $value, string $message = ''): void
+    {
+        if (!is_float($value)) {
+            throw AssertionFailedException::forAssertion('assertIsFloat', $message ?: 'Expected float.');
+        }
+    }
+
+    public static function assertIsNotFloat(mixed $value, string $message = ''): void
+    {
+        if (is_float($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotFloat', $message ?: 'Expected not float.');
+        }
+    }
+
+    public static function assertIsObject(mixed $value, string $message = ''): void
+    {
+        if (!is_object($value)) {
+            throw AssertionFailedException::forAssertion('assertIsObject', $message ?: 'Expected object.');
+        }
+    }
+
+    public static function assertIsNotObject(mixed $value, string $message = ''): void
+    {
+        if (is_object($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotObject', $message ?: 'Expected not object.');
+        }
+    }
+
+    public static function assertIsCallable(mixed $value, string $message = ''): void
+    {
+        if (!is_callable($value)) {
+            throw AssertionFailedException::forAssertion('assertIsCallable', $message ?: 'Expected callable.');
+        }
+    }
+
+    public static function assertIsNotCallable(mixed $value, string $message = ''): void
+    {
+        if (is_callable($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotCallable', $message ?: 'Expected not callable.');
+        }
+    }
+
+    public static function assertIsResource(mixed $value, string $message = ''): void
+    {
+        if (!is_resource($value)) {
+            throw AssertionFailedException::forAssertion('assertIsResource', $message ?: 'Expected resource.');
+        }
+    }
+
+    public static function assertIsNotResource(mixed $value, string $message = ''): void
+    {
+        if (is_resource($value)) {
+            throw AssertionFailedException::forAssertion('assertIsNotResource', $message ?: 'Expected not resource.');
+        }
+    }
+
+    public static function assertNotContains(mixed $needle, mixed $haystack, string $message = ''): void
+    {
+        if (is_array($haystack)) {
+            if (in_array($needle, $haystack, true)) {
+                throw AssertionFailedException::forAssertion('assertNotContains', $message ?: 'Needle found in array.');
+            }
+        } elseif (is_string($haystack)) {
+            if (str_contains($haystack, (string) $needle)) {
+                throw AssertionFailedException::forAssertion('assertNotContains', $message ?: 'Needle found in string.');
+            }
+        }
+    }
+
+    public static function assertNotTrue(mixed $value, string $message = ''): void
+    {
+        if ($value === true) {
+            throw AssertionFailedException::forAssertion('assertNotTrue', $message ?: 'Expected not true.');
+        }
+    }
+
+    public static function assertNotFalse(mixed $value, string $message = ''): void
+    {
+        if ($value === false) {
+            throw AssertionFailedException::forAssertion('assertNotFalse', $message ?: 'Expected not false.');
+        }
+    }
+
+    public static function assertNotEquals(mixed $expected, mixed $actual, string $message = ''): void
+    {
+        if ($expected == $actual) {
+            throw AssertionFailedException::forAssertion('assertNotEquals', $message ?: 'Expected not equal.');
+        }
+    }
+
+    public static function assertNotCount(int $expected, mixed $haystack, string $message = ''): void
+    {
+        $actual = is_countable($haystack) ? count($haystack) : 0;
+        if ($actual === $expected) {
+            throw AssertionFailedException::forAssertion('assertNotCount', $message ?: "Expected count != {$expected}, got {$actual}.");
+        }
+    }
+
+    public static function assertNotInstanceOf(string $expected, mixed $actual, string $message = ''): void
+    {
+        if ($actual instanceof $expected) {
+            throw AssertionFailedException::forAssertion('assertNotInstanceOf', $message ?: 'Expected not instance of ' . $expected);
+        }
+    }
+
+    public static function assertArrayNotHasKey(string|int $key, array $arr, string $message = ''): void
+    {
+        if (array_key_exists($key, $arr)) {
+            throw AssertionFailedException::forAssertion('assertArrayNotHasKey', $message ?: "Key '{$key}' found in array.");
+        }
+    }
+
+    public static function assertStringNotContainsString(string $needle, string $haystack, string $message = ''): void
+    {
+        if (str_contains($haystack, $needle)) {
+            throw AssertionFailedException::forAssertion('assertStringNotContainsString', $message ?: "String '{$needle}' found in '{$haystack}'.");
+        }
+    }
+
+    public static function assertStringNotStartsWith(string $needle, string $haystack, string $message = ''): void
+    {
+        if (str_starts_with($haystack, $needle)) {
+            throw AssertionFailedException::forAssertion('assertStringNotStartsWith', $message ?: "String '{$haystack}' starts with '{$needle}'.");
+        }
+    }
+
+    public static function assertStringNotEndsWith(string $needle, string $haystack, string $message = ''): void
+    {
+        if (str_ends_with($haystack, $needle)) {
+            throw AssertionFailedException::forAssertion('assertStringNotEndsWith', $message ?: "String '{$haystack}' ends with '{$needle}'.");
+        }
+    }
+
+    public static function assertLessThanOrEqual(mixed $expected, mixed $actual, string $message = ''): void
+    {
+        if (!($actual <= $expected)) {
+            throw AssertionFailedException::forAssertion('assertLessThanOrEqual', $message ?: "Expected <= {$expected}, got {$actual}.");
+        }
+    }
+
+    public static function assertGreaterThanOrEqual(mixed $expected, mixed $actual, string $message = ''): void
+    {
+        if (!($actual >= $expected)) {
+            throw AssertionFailedException::forAssertion('assertGreaterThanOrEqual', $message ?: "Expected >= {$expected}, got {$actual}.");
+        }
+    }
+
+    public static function assertNotNull(mixed $value, string $message = ''): void
+    {
+        if ($value === null) {
+            throw AssertionFailedException::forAssertion('assertNotNull', $message ?: 'Expected not null.');
+        }
+    }
+
+    public function createMock(string $class): object
+    {
+        return Mock\Mock::of($class)->getMock();
+    }
+
+    public function createStub(string $class): object
+    {
+        return Mock\Mock::of($class)->getMock();
+    }
+
+    public function createMockForAbstractClass(string $class): object
+    {
+        return Mock\Mock::of($class)->getMock();
+    }
+
+    public function expectExceptionMessageMatches(string $pattern): void
+    {
+        $this->expectedExceptionMessagePattern = $pattern;
+    }
+
+    private ?string $expectedExceptionMessagePattern = null;
+
 }
