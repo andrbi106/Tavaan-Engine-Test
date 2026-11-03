@@ -314,4 +314,13 @@ abstract class TestCase
         // TODO: Implement per docs.
         return null;
     }
+
+    /**
+     * ...
+     */
+    public function ...(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
 }
