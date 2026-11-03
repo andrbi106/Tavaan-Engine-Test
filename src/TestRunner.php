@@ -92,15 +92,13 @@ final class TestRunner
      */
     public function result(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this->run();
     }
     /**
      * suite
      */
     public function suite(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this;
     }
 }

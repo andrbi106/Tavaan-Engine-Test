@@ -282,32 +282,28 @@ abstract class TestCase
      */
     public function actingAs(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        $this->user = $user; return $this;
     }
     /**
      * get
      */
     public function get(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this->call("GET", $uri);
     }
     /**
      * post
      */
     public function post(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this->call("POST", $uri, $data);
     }
     /**
      * postJson
      */
     public function postJson(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this->call("POST", $uri, $data, true);
     }
 
     /**
