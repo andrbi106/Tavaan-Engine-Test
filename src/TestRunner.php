@@ -85,4 +85,21 @@ final class TestRunner
         $runner = new self($cases, $verbose);
         return $runner->run();
     }
+
+    /**
+     * result
+     */
+    public function result(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * suite
+     */
+    public function suite(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
 }

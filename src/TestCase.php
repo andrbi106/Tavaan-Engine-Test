@@ -273,4 +273,45 @@ abstract class TestCase
     {
         throw new \Tavaan\Testing\Exceptions\TestIncompleteException($message ?: 'Test is incomplete.');
     }
+
+    /**
+     * ...
+     */
+    public function ...(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * actingAs
+     */
+    public function actingAs(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * get
+     */
+    public function get(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * post
+     */
+    public function post(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * postJson
+     */
+    public function postJson(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
 }
