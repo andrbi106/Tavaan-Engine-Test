@@ -5,45 +5,94 @@ declare(strict_types=1);
 namespace Tavaan\Testing;
 
 /**
- * Factory — پیاده‌سازی مطابق مستندات.
- *
- * @see docs/03-engines/ (YAML machine-readable block)
+ * Factory — builder for creating model instances for tests.
  */
 final class Factory
 {
-    /**
-     * definition
-     */
-    public function definition()
+    /** @var callable|null */
+    private $resolver;
+
+    private array $states = [];
+    private int $count = 1;
+    private array $instances = [];
+
+    public function __construct(?callable $resolver = null)
     {
-        return null;
+        $this->resolver = $resolver;
     }
+
     /**
-     * create
+     * definition — default attribute set; override in subclasses.
+     * @return array<string, mixed>
      */
-    public function create(array $data): self
+    public function definition(): array
     {
-        return null;
+        return [];
     }
+
     /**
-     * make
+     * create — persist N instances and return them (or single if count=1).
+     * @param array<string, mixed> $data
+     * @return self|array<int, array<string, mixed>>
      */
-    public function make()
+    public function create(array $data = []): self|array
     {
-        return null;
+        for ($i = 0; $i < $this->count; $i++) {
+            $attrs = array_merge($this->definition(), $data);
+            foreach ($this->states as $state) {
+                $attrs = array_merge($attrs, $state);
+            }
+            $this->instances[] = $attrs;
+            if ($this->resolver !== null) {
+                ($this->resolver)($attrs);
+            }
+        }
+        return $this;
     }
+
     /**
-     * count
+     * make — build instances without persisting.
+     * @param array<string, mixed> $data
+     * @return array<int, array<string, mixed>>
      */
-    public function count(): int
+    public function make(array $data = []): array
     {
-        return 0;
+        $built = [];
+        for ($i = 0; $i < $this->count; $i++) {
+            $attrs = array_merge($this->definition(), $data);
+            foreach ($this->states as $state) {
+                $attrs = array_merge($attrs, $state);
+            }
+            $built[] = $attrs;
+        }
+        return $built;
     }
+
     /**
-     * state
+     * count — set number of instances to build/create.
      */
-    public function state()
+    public function count(int $n): self
     {
-        return null;
+        $this->count = max(1, $n);
+        return $this;
+    }
+
+    /**
+     * state — merge extra attributes for next instances.
+     * @param array<string, mixed> $attrs
+     */
+    public function state(array $attrs): self
+    {
+        $this->states[] = $attrs;
+        return $this;
+    }
+
+    /**
+     * Get instances created so far.
+     * @return array<int, array<string, mixed>>
+     */
+    public function getInstances(): array
+    {
+        return $this->instances;
     }
 }

@@ -88,17 +88,18 @@ final class TestRunner
     }
 
     /**
-     * result
+     * result — return last suite result (or null if not run yet).
      */
-    public function result()
+    public function result(): ?TestSuiteResult
     {
-        return null;
+        return $this->lastResult ?? null;
     }
     /**
-     * suite
+     * suite — return list of registered TestCase instances.
+     * @return list<TestCase>
      */
-    public function suite()
+    public function suite(): array
     {
-        return null;
+        return $this->cases;
     }
 }
