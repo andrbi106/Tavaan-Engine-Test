@@ -25,5 +25,6 @@
   "commands": [
     "test"
   ],
-  "docs": "docs/03-engines/test.md"
+  "docs": "docs/03-engines/test.md",
+  "class": "Tavaan\\Testing\\TestEngine"
 }

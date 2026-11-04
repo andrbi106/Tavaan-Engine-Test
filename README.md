@@ -2,6 +2,8 @@
 
 > **چارچوب تست** — موتور Test در فریمورک تَوان
 
+این موتور از کلاس پایهٔ `Engine` (در [Tavaan-Engine-Core](https://github.com/andrbi106/Tavaan-Engine-Core)) ارث می‌برد.
+
 ## مشخصات
 
 | فیلد | مقدار |
@@ -11,36 +13,38 @@
 | عنوان فارسی | چارچوب تست |
 | نسخه | `0.1.0` |
 | namespace | `Tavaan\Testing` |
-| نوع | `engine` |
+| کلاس موتور | `Tavaan\Testing\TestEngine` |
+| Facade |  |
 
-## خطاها (Exceptions)
+## کلاس موتور
 
-- `Tavaan\Testing\Exceptions\AssertionFailedException`
-- `Tavaan\Testing\Exceptions\TestIncompleteException`
+```php
+namespace Tavaan\Testing;
 
-## کلاس‌های اصلی
+use Tavaan\EngineCore\Engine as BaseEngine;
+use Tavaan\EngineCore\Contracts\EngineManifestInterface;
 
-- `src/AssertionFailed.php`
-- `src/Coverage/CoverageReporter.php`
-- `src/Database/Faker.php`
-- `src/Database/RefreshDatabase.php`
-- `src/Factory.php`
-- `src/Group.php`
-- `src/Http/MakesHttpRequests.php`
-- `src/Http/TestResponse.php`
-- `src/Mock/Expectation.php`
-- `src/Mock/Mock.php`
-- `src/Mock/MockBuilder.php`
-- `src/Mock/MockHandler.php`
-- `src/Mock/MockProxy.php`
-- `src/Mock/ProxyGenerator.php`
-- `src/TestCase.php`
-- `src/TestClassDescriptor.php`
-- `src/TestCommand.php`
-- `src/TestFailure.php`
-- `src/TestMethodDescriptor.php`
-- `src/TestResult.php`
-- ... و 5 فایل دیگر
+final class TestEngine extends BaseEngine
+{
+    public function __construct(EngineManifestInterface $manifest)
+    {
+        parent::__construct($manifest);
+    }
+
+    public function register(ContainerInterface $container): void
+    {
+        parent::register($container);
+        // bindingهای اختصاصی موتور
+    }
+
+    public function boot(): void
+    {
+        parent::boot();
+    }
+}
+```
+
+**فایل:** `src/TestEngine.php`
 
 ## Service Providerها
 
@@ -50,28 +54,19 @@
 
 - `test`
 
-## پیکربندی
+## سه درگاه ارتباط با سایر موتورها
 
-- فایل پیکربندی: `config/test.php`
-- کلید: `test`
+| درگاه | الگو | متدهای convenience |
+|---|---|---|
+| Container | pull-based DI | `make()`, `bound()` |
+| Events | pub/sub | `dispatch()`, `listen()` |
+| EngineBus | point-to-point RPC | `call()`, `offer()` |
 
 ## نصب
 
 ```bash
 git clone https://github.com/andrbi106/Tavaan-Engine-Test.git
 ```
-
-این موتور بخشی از فریمورک تَوان است و معمولاً به‌صورت مستقیم نصب نمی‌شود،
-بلکه توسط [Tavaan-Core](https://github.com/andrbi106/Tavaan-Core) مدیریت می‌شود.
-
-## روابط با سایر مخازن
-
-| مخزن | نقش |
-|---|---|
-| **`andrbi106/Tavaan-Engine-Test`** (این مخزن) | موتور Test |
-| `andrbi106/Tavaan-Engine-Core` | ساختار پایه + درگاه ارتباط موتورها |
-| `andrbi106/Tavaan-Core` | اسکلت اپلیکیشن + همهٔ موتورها |
-| `Derogaramin/Tavaan-Framework` | فریمورک مادر (monorepo) |
 
 ## مجوز
 
